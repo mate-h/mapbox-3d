@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJM24HFGXR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BJM24HFGXR');
+    </script>
+    <script type="module">
+      import set from "lodash.set";
+      window.dispatch = function(eventName, eventData, callback) {
+        var event = new CustomEvent(eventName, {
+          bubbles: true,
+          cancelable: true,
+          detail: eventData
+        });
+        window.dispatchEvent(event);
+      }
+      window.addEventListener("panelLeft.toggle", function(event) {
+        document.getElementById("info").classList.toggle("hidden", event.detail.value);
+        window.state = set(window.state, event.detail.name, event.detail.value);
+      });
+      window.addEventListener("panel.toggle", function(event) {
+        document.getElementById("panel").classList.toggle("hidden", event.detail.value);
+        window.state = set(window.state, event.detail.name, event.detail.value);
+      });
+      function loadMessages() {
+        // get language from url
+        var language = new URL(location.href).searchParams.get("lang");
+        const navLang =  language || window.navigator.language || window.navigator.userLanguage;
+        const lang = navLang.substring(0, 2);
+        const bundle = {
+          'en': {
+            "language.select": "Select language",
+            "location.select": "Select location",
+            "actions.close": "Close",
+            "actions.options": "Options",
+            "actions.data": "Data",
+          },
+          "hu": {
+            "language.select": "Nyelv kiválasztása",
+            "location.select": "Hely kiválasztása",
+            "actions.close": "Bezárás",
+            "actions.options": "Opciók",
+            "actions.data": "Adatok",
+          }
+        };
+        document.documentElement.lang = lang;
+        window.messages = bundle[lang] || bundle['en'];
+        function getMsg(name) {
+          return window.messages[name];
+        }
+        window.getMsg = getMsg;
+        document.querySelectorAll("[message]").forEach(el => {
+          el.innerHTML = getMsg(el.getAttribute("message"));
+        });
+      }
+      window.addEventListener("load", loadMessages);
+      window.addEventListener("load.messages", loadMessages);
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <title>Vite App</title>
+  </head>
+  <body class="relative h-full w-full flex flex-column overflow-hidden">
+    <div class="absolute inset-0" id="map"></div>
+    <div class="absolute top-4 left-4 sm:top-6 sm:left-6">
+      <div style="user-select: all;" id="info" class="rounded-lg bg-white ring p-4 sm:p-6 m-4 sm:m-6 space-y-4">
+        
+      </div>
+      <div class="absolute left-4 sm:left-6">
+        <button
+          onclick="window.addEventListener('panelLeft.toggle', () => {this.innerHTML = getMsg(!state.panel.leftOpen ? 'actions.close' : 'actions.data');}); dispatch('panelLeft.toggle', { name: 'panel.leftOpen', value: !state.panel.leftOpen });" 
+          message="actions.close"
+          class="rounded-lg bg-white ring appearance-none text-base cursor-pointer transition-color flex px-4 h-8 flex items-center justify-center">
+        </button>
+      </div>
+    </div>
+    <div class="absolute top-4 right-4 sm:top-6 sm:right-6">
+      <div id="panel" class="rounded-lg bg-white ring p-4 sm:p-6 m-4 sm:m-6 space-y-4">
+        <p message="language.select" class="text-sm tracking-wide">Select language</p>
+        <div>
+          <ul id="languages">
+            <li class="inline-block pr-2"><a href="?lang=hu">🇭🇺</a></li>
+            <li class="inline-block pr-2"><a href="?lang=en">🇬🇧</a></li>
+          </ul>
+        </div>
+        <hr>
+        <p message="location.select" class="text-sm tracking-wide"></p>
+        <ul id="locations" class="space-y-4">
+          <hr>
+          <li>
+            🇦🇹&nbsp;
+            <a href="?lng=10.8673&lat=46.8854" class="text-base font-medium tracking-wide hover:underline active:text-primary-700 transition-color">
+              Wildspitze ›
+            </a>
+          </li>
+          <hr>
+          <!-- <li>
+            🇨🇦&nbsp;
+            <a href="?lng=-116.49&lat=51.395" class="text-base font-medium tracking-wide hover:underline active:text-primary-700 transition-color">
+              Field, BC ›
+            </a>
+          </li>
+          <hr>
+          <li>
+            🇭🇺&nbsp;
+            <a href="?lng=19.0402&lat=47.4979" class="text-base font-medium tracking-wide hover:underline active:text-primary-700 transition-color">
+              Budapest, Hungary ›
+            </a>
+          </li>
+          <hr> -->
+        </ul>
+        <input id="drop-area" class="transition-color h-16 p-4 flex flex-column justify-center border-dashed rounded-lg" type="file" multiple />
+        
+      </div>
+      <div class="absolute right-4 sm:right-6">
+        <button
+          onclick="window.addEventListener('panel.toggle', () => {this.innerHTML = getMsg(!state.panel.open ? 'actions.close' : 'actions.options');}); dispatch('panel.toggle', { name: 'panel.open', value: !state.panel.open });" 
+          message="actions.close"
+          class="rounded-lg bg-white ring appearance-none text-base cursor-pointer transition-color flex px-4 h-8 flex items-center justify-center">
+        </button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts" rel="preload"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "lat": -33.867,
+  "lng": 151.207,
+  "zoom": 20,
+  "pitch": 0,
+  "bearing": 0,
+  "markers": [
+    {
+      "lat": -33.867,
+      "lng": 151.207,
+      "infobox": "<b>Test</b>"
+    }
+  ],
+  "data": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "poi:1",
+          "name": "Test",
+          "description": "Test"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -33.867,
+            151.206
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "poi:123",
+          "name": "Test",
+          "description": "Test",
+          "address": "Test",
+          "phone": "Test",
+          "website": "Test",
+          "email": "Test",
+          "opening_hours": "Test",
+          "twitter": "Test",
+          "facebook": "Test",
+          "wikipedia": "Test",
+          "category": "Test",
+          "subcategory": "Test",
+          "nearby": "Test",
+          "distance": "Test",
+          "postcode": "Test",
+          "opening_hours_raw": "Test",
+          "formatted_address": "Test",
+          "streetview_url": "Test",
+          "image_url": "Test",
+          "image_url_base": "Test",
+          "map_type": "Test",
+          "map_type_name": "Test",
+          "map_type_id": "Test"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -33.867,
+            151.207
+          ]
+        }
+      }
+    ]
+  }
+}

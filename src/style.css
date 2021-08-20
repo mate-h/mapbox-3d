@@ -1,0 +1,114 @@
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inline-block { display: inline-block; }
+.block { display: block; }
+.hidden { display: none; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.inset-0 { top: 0; left: 0; bottom: 0; right: 0; }
+.h-full { height: 100vh; }
+.w-full { width: 100vw; }
+.overflow-hidden { overflow: hidden; }
+.pointer-events-none { pointer-events: none; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.bg-white { background: white; }
+.rounded { border-radius: 0.25rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.cursor-pointer { cursor: pointer; }
+.appearance-none { appearance: none; -webkit-appearance: none; }
+.top-4 { top: 1rem; }
+.right-4 { right: 1rem; }
+.bottom-4 { bottom: 1rem; }
+.left-4 { left: 1rem; }
+@media (min-width: 640px) {
+  .sm\:top-6 { top: 1rem; }
+  .sm\:right-6 { right: 1rem; }
+  .sm\:bottom-6 { bottom: 1rem; }
+  .sm\:left-6 { left: 1rem; }
+}
+.p-4 { padding: 1rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.h-6 { height: 1.5rem; }
+.h-16 { height: 4rem; }
+.h-32 { height: 8rem; }
+.h-8 { height: 2rem; }
+.p-6 { padding: 1.5rem; }
+.pl-2 { padding-left: 0.5rem; }
+.pr-2 { padding-right: 0.5rem; }
+@media (min-width: 640px) {
+  .sm\:p-6 { padding: 1.5rem; }
+}
+.m-4 { margin: 1rem; }
+.m-6 { margin: 1.5rem; }
+@media (min-width: 640px) {
+  .sm\:m-6 { margin: 1.5rem; }
+}
+.mt-2 { margin-top: 0.5rem; }
+.flex { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.flex-row { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+.flex-column { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+.divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--gray-300);
+}
+.border-gray-300 { border-color: var(--gray-300) }
+.text-base { font-size: 1rem; }
+.text-sm { font-size: 0.825rem; }
+.text-xs { font-size: 0.75rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.5rem; }
+.font-medium { font-weight: 600; }
+.tracking-wide { letter-spacing: 0.015em; }
+.text-primary { color: #0040ff; }
+.text-primary-700 { color: #003399; }
+.hover\:underline:hover { text-decoration: underline; }
+.active\:text-primary-700:active { color: #003399; }
+.transition-color { transition: color 75ms linear, border-color 75ms linear, background-color 75ms linear; }
+.border-dashed { border: 2px dashed var(--gray-300); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/KFOkAiYc3KXxRnxUdmXnkfoLQ.woff2) format('woff2');
+}
+
+:root {
+  --gray-300: rgb(209, 213, 219);
+  --primary: #0040ff;
+  --primary-700: #003399;
+}
+p {padding:0; margin:0;}
+a {color: #0040ff; text-decoration: none;}
+ul {list-style: none; padding: 0; margin: 0;}
+li {padding: 0; margin: 0;}
+hr {border: 0; height: 1px; background-color: var(--gray-300); margin: 0; padding: 0;}
+body { margin: 0; padding: 0; font-family: Roboto, -system-ui, sans-serif; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+button, input { font-family: Roboto, -system-ui, sans-serif; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+.ring {
+  border: 1px solid var(--gray-300);
+}
+.drag-over {
+  border: 2px dashed var(--primary);
+}
+
+
+
+.icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-family: "Symbols";
+}
