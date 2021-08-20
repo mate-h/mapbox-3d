@@ -2,7 +2,7 @@ import "./style.css";
 import mapboxgl, { GeoJSONSourceRaw, Map, SymbolLayer } from "mapbox-gl";
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibWF0ZWgiLCJhIjoiY2pmOTEzbHo2MzU3cTJ3b201NDNkOXQxZiJ9.UYLkoWDRs877jt_-k4LH4g";
+  "YOUR_TOKEN_HERE";
 
 // parse location from url
 type State = {
