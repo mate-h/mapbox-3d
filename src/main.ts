@@ -2,7 +2,7 @@ import "./style.css";
 import mapboxgl, { GeoJSONSourceRaw, Map, SymbolLayer } from "mapbox-gl";
 
 mapboxgl.accessToken =
-  "YOUR_TOKEN_HERE";
+  "pk.eyJ1IjoibWF0ZWgiLCJhIjoiY2pmOTEzbHo2MzU3cTJ3b201NDNkOXQxZiJ9.UYLkoWDRs877jt_-k4LH4g";
 
 // parse location from url
 type State = {
@@ -66,6 +66,9 @@ window.onload = () => {
       const location = parseLocation(href);
       setState(location);
       map.setCenter([location.lng, location.lat]);
+      if (location.zoom) map.setZoom(location.zoom);
+      if (location.pitch) map.setPitch(location.pitch);
+      if (location.bearing) map.setBearing(location.bearing);
       anchor.blur();
     };
   });
